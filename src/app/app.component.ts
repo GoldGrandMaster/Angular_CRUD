@@ -46,16 +46,16 @@ export class AppComponent implements OnInit {
     this._dialog.open(EmpAddEditComponent);
   }
 
-  getEmployeeList() {
-    this._empService.getEmployeeList().subscribe({
-      next: (res) => {
-        this.dataSource = new MatTableDataSource(res);
-        this.dataSource.sort = this.sort;
-        this.dataSource.paginator = this.paginator;
-      },
-      error: console.log,
-    });
-  }
+  // getEmployeeList() {
+  //   this._empService.getEmployeeList().subscribe({
+  //     next: (res) => {
+  //       this.dataSource = new MatTableDataSource(res);
+  //       this.dataSource.sort = this.sort;
+  //       this.dataSource.paginator = this.paginator;
+  //     },
+  //     error: console.log,
+  //   });
+  // }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

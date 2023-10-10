@@ -42,9 +42,9 @@ export class AppComponent implements OnInit {
     this.getEmployeeList();
   }
 
-  openAddEditEmpForm(){
-    this._dialog.open(EmpAddEditComponent);
-  }
+  // openAddEditEmpForm(){
+  //   this._dialog.open(EmpAddEditComponent);
+  // }
 
   getEmployeeList() {
     this._empService.getEmployeeList().subscribe({

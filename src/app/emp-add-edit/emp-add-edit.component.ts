@@ -35,17 +35,17 @@ export class EmpAddEditComponent {
     })
   }
 
-  // onFormSubmit() {
-  //   if (this.empForm.valid) {
-  //     this._empService.addEmployee(this.empForm.value).subscribe({
-  //       next: (val: any) => {
-  //         alert('Employee added successfully');
-  //         this._dialogRef.close();
-  //       },
-  //       error: (err: any) => {
-  //         console.error(err);
-  //       }
-  //     })
-  //   }
-  // }
+  onFormSubmit() {
+    if (this.empForm.valid) {
+      this._empService.addEmployee(this.empForm.value).subscribe({
+        next: (val: any) => {
+          alert('Employee added successfully');
+          this._dialogRef.close();
+        },
+        error: (err: any) => {
+          console.error(err);
+        }
+      })
+    }
+  }
 }

@@ -58,18 +58,18 @@ export class EmpAddEditComponent implements OnInit{
           }
         })
       }
-      // else {
-      //   this._empService.addEmployee(this.empForm.value).subscribe({
-      //     next: (val: any) => {
-      //       // alert('Employee added successfully');
-      //       this._coreService.openSnackBar('Employee added successfully');
-      //       this._dialogRef.close(true);
-      //     },
-      //     error: (err: any) => {
-      //       console.error(err);
-      //     }
-      //   })
-      // }
+      else {
+        this._empService.addEmployee(this.empForm.value).subscribe({
+          next: (val: any) => {
+            // alert('Employee added successfully');
+            this._coreService.openSnackBar('Employee added successfully');
+            this._dialogRef.close(true);
+          },
+          error: (err: any) => {
+            console.error(err);
+          }
+        })
+      }
     }
   }
 }

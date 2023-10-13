@@ -7,6 +7,7 @@ import {MatSort, MatSortModule} from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { CoreService } from './core/core.service';
 
 @Component({
   selector: 'app-root',
@@ -35,15 +36,23 @@ export class AppComponent implements OnInit {
 
   constructor(
     private _dialog: MatDialog,
-    private _empService: EmployeeService
+    private _empService: EmployeeService,
+    private _coreService: CoreService
   ) {}
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.getEmployeeList();
   }
 
-  openAddEditEmpForm(){
-    this._dialog.open(EmpAddEditComponent);
+  openAddEditEmpForm() {
+    const dialogRef = this._dialog.open(EmpAddEditComponent);
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getEmployeeList();
+        }
+      },
+    });
   }
 
   getEmployeeList() {
@@ -64,5 +73,30 @@ export class AppComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  deleteEmployee(id: number) {
+    this._empService.deleteEmployee(id).subscribe({
+      next: (res) => {
+        // alert('Employee deleted!');
+        this._coreService.openSnackBar('Employee deleted!', 'done');
+        this.getEmployeeList();
+      },
+      error: console.log,
+    });
+  }
+
+  openEditForm(data: any) {
+    const dialogRef = this._dialog.open(EmpAddEditComponent, {
+      data,
+    });
+    
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getEmployeeList();
+        }
+      },
+    });
   }
 }

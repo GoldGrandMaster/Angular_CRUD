@@ -33,18 +33,18 @@ export class AppComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(
-    private _dialog: MatDialog,
-    private _empService: EmployeeService
-  ) {}
+  // constructor(
+  //   private _dialog: MatDialog,
+  //   private _empService: EmployeeService
+  // ) {}
 
-  ngOnInit(): void{
-    this.getEmployeeList();
-  }
+  // ngOnInit(): void{
+  //   this.getEmployeeList();
+  // }
 
-  openAddEditEmpForm(){
-    this._dialog.open(EmpAddEditComponent);
-  }
+  // openAddEditEmpForm(){
+  //   this._dialog.open(EmpAddEditComponent);
+  // }
 
   getEmployeeList() {
     this._empService.getEmployeeList().subscribe({

@@ -20,25 +20,25 @@ export class EmpAddEditComponent implements OnInit{
     'Post Graduate',
   ];
 
-  constructor(
-    private _fb: FormBuilder,
-    private _empService: EmployeeService,
-    private _dialogRef: MatDialogRef<EmpAddEditComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    private _coreService: CoreService
-  ) {
-    this.empForm = this._fb.group({
-      firstName: '',
-      lastName: '',
-      email: '',
-      dob: '',
-      gender: '',
-      education: '',
-      company: '',
-      experience: '',
-      package: '',
-    })
-  }
+  // constructor(
+  //   private _fb: FormBuilder,
+  //   private _empService: EmployeeService,
+  //   private _dialogRef: MatDialogRef<EmpAddEditComponent>,
+  //   @Inject(MAT_DIALOG_DATA) public data: any,
+  //   private _coreService: CoreService
+  // ) {
+  //   this.empForm = this._fb.group({
+  //     firstName: '',
+  //     lastName: '',
+  //     email: '',
+  //     dob: '',
+  //     gender: '',
+  //     education: '',
+  //     company: '',
+  //     experience: '',
+  //     package: '',
+  //   })
+  // }
 
   ngOnInit(): void {
     this.empForm.patchValue(this.data);
